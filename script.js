@@ -7,25 +7,26 @@ let search = document.getElementById("search");
 // let flagBtn = document.getElementById("flag")
 // let handBtn = document.getElementById("hand")
 let container = document.querySelector(".container");
-let filterBtns = document.querySelectorAll(".filters li")
+let filterBtns = document.querySelectorAll(".filters li");
 
-function filterEmoji(searchText){
-    container.innerHTML = "";
-    let filteredArr =  emojiList.filter((emoji) =>{
-        if(searchText === "") return true
-        else if(emoji.description.includes(searchText)) return true
-        else if(emoji.category.includes(searchText)) return true
-        else if (emoji.aliases.includes(searchText)) return true
-        else if (emoji.tags.includes(searchText)) return true
-        else if (searchText === "all") return true
-    })
+const header = document.querySelector("header");
+const body = document.body;
 
-    search.innerText = ""
+function filterEmoji(searchText) {
+  container.innerHTML = "";
+  let filteredArr = emojiList.filter((emoji) => {
+    if (searchText === "") return true;
+    else if (emoji.description.includes(searchText)) return true;
+    else if (emoji.category.includes(searchText)) return true;
+    else if (emoji.aliases.includes(searchText)) return true;
+    else if (emoji.tags.includes(searchText)) return true;
+    else if (searchText === "all") return true;
+  });
 
-    displayEmoji(filteredArr)
+  search.innerText = "";
+
+  displayEmoji(filteredArr);
 }
-
-
 
 function displayEmoji(arr) {
   arr.forEach((ele) => {
@@ -55,23 +56,29 @@ function displayEmoji(arr) {
 }
 // displayEmoji(emojiList)
 
-
 window.addEventListener("load", () => {
   displayEmoji(emojiList);
+  setTimeout(() => {
+    header.classList.add("fade-down");
+    body.classList.add("fade-up");
+    header.style.opacity = 1;
+    body.style.opacity = 1;
+  }, 800);
+
+//   header.classList.remove("fade-down")
+//   body.classList.remove("fade-up")
 });
 
 search.addEventListener("keyup", () => {
-    let inputText = search.value.toLowerCase();
-    // console.log(inputText);
+  let inputText = search.value.toLowerCase();
+  // console.log(inputText);
 
-    filterEmoji(inputText)
-
-})
+  filterEmoji(inputText);
+});
 
 filterBtns.forEach((btn) => {
-    console.log(btn);
-    btn.addEventListener("click", () => {
-
-        filterEmoji(btn.innerText.toLowerCase())
-    })
-})
+  console.log(btn);
+  btn.addEventListener("click", () => {
+    filterEmoji(btn.innerText.toLowerCase());
+  });
+});

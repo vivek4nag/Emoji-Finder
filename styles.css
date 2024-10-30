@@ -16,6 +16,7 @@ body {
     background-color: #fbfbfb;
     padding-top: 180px;
     font-family: "DynaPuff", system-ui;
+    opacity: 0; /* wohi animation ke liye*/
     
 }
 
@@ -39,6 +40,8 @@ header {
     position: fixed;
     top: 0;
     z-index: 999;
+    opacity: 0; /* animation ke liye starting me 0*/
+    transition: opacity 0.6s ease;
 }
 
 .header-items {
@@ -141,5 +144,35 @@ header {
             color: #164c8e;
             text-align: center;
         }
+    }
+}
+
+.fade-down {
+    animation: fadeInDown 0.6s ease forwards;
+}
+
+.fade-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInDown {
+    0% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
