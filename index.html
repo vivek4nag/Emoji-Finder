@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/laughing-emoji-svgrepo-com.svg" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <title>Emoji Finder</title>
 </head>
+
 <body>
-    boiler plate
+    <header>
+        <div class="logo"><img src="assets/edit-me(1).png" alt="emoji-hub logo" id="logo-img"></div>
+        <div class="header-items">
+            <div class="search">
+                <input type="text" id="search" placeholder="Search Emoji Name">
+            </div>
+            <div class="filters">
+                <ol>
+                    <li id="all">All</li>
+                    <li id="smile">Smile</li>
+                    <li id="heart">heart</li>
+                    <li id="face">Face</li>
+                    <li id="flag">Flag</li>
+                    <li id="hand">Hand</li>
+                </ol>
+            </div>
+        </div>
+        
+    </header>
+    <div class="container">
+        <!-- each emoji will be rendered here -->
+    </div>
 
 
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
